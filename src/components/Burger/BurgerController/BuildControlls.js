@@ -20,7 +20,10 @@ const buildControllers = (props)=>{
              disabled = {props.disabled[ctrls.key]}>
              </BuildControll>)
             }
-            <button className = {classes.OrderButton}>Order Now</button>
+            <button 
+            onClick = {props.purchase}
+            className = {classes.OrderButton}
+            disabled = {props.purchasable}>ORDER NOW</button>
         </div>
     );
 }
