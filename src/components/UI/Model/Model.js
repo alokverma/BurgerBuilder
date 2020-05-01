@@ -7,8 +7,8 @@ const model = (props)=>{
    return (
         <Aux>
                <Backdrop 
-               clicked = {props.modelClosed}
-               show= {props.show}></Backdrop>
+                    clicked = {props.modelClosed}
+                    show= {props.show}></Backdrop>
                <div 
                className  = {classes.Model}
                style = {
