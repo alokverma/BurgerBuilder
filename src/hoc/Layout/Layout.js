@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Auxilary';
+import Aux from '../Aux/Auxilary';
 import clasess from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar'
-import SideDrawer from '../Navigation/Sidedrawer/Sidedrawer'
+import SideDrawer from '../../components/Navigation/Sidedrawer/Sidedrawer'
 
 class Layout extends Component {
 
@@ -11,13 +11,14 @@ class Layout extends Component {
     }
 
     sideDrawerClosedHandler= ()=>{
-        this.setState({showSideDrawer:false})
+        const newStateForDrawer = this.state.showSideDrawer
+        this.setState({showSideDrawer:!newStateForDrawer})
     }
    
     render(){
         return (
             <Aux>
-                <Toolbar/>
+                <Toolbar drawerToggle = {this.sideDrawerClosedHandler}/>
                 <SideDrawer
                  open = {this.state.showSideDrawer}
                  closed = {this.sideDrawerClosedHandler}/>
