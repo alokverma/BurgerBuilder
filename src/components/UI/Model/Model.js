@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Model.css'
-import Aux from '../../../hoc/Aux/Auxilary'
+import Aux from '../../../hoc/Auxilary/Auxilary'
 import Backdrop from '../Backdrop/Backdrop'
 
 const model = (props)=>{
