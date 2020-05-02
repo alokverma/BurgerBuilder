@@ -1,4 +1,4 @@
-<h1>This is sample burger builderproject using React-js library.<h1>
+<h2>This is sample burger builderproject using React-js library.<h2>
 
 <p>In this sample, I am making a burger builder platform where user can customize their burger with ingredients, order them and do more...</p>
 
