@@ -17,7 +17,9 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active{
-    color:#40a4c8
+    color:wheat;
+    padding: 15px ;
+    background-color: #8F5C2C;
 }
 
 @media(min-width:500px){
