@@ -18,7 +18,12 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends Component{
 
     state = {
-        ingredeints: null,
+        ingredeints: {
+            salad:0,
+            cheese:0,
+            meat:0,
+            bacon:0
+        },
         totalPrice:4,
         purchasable:false,
         puchasing:false,
@@ -135,21 +140,22 @@ class BurgerBuilder extends Component{
         let burger =  this.state.error? <p>Ingredients cant be loaded</p> : <Spinner></Spinner>
         if(this.state.ingredeints){
          burger = (
-                <Aux>
-                <Burger ingredients = {this.state.ingredeints}/>
+                    <Aux>
+                    <Burger ingredients = {this.state.ingredeints}/>
                     <BuildControlls 
-                        totalPrice = {this.state.totalPrice}
-                        ingredientRemoved = {this.removeIngredientHandler}
-                        ingredientAdded = {this.addIngredientHandler}
-                        disabled = {disableInfor}
-                        purchase = {this.purchaseHandler}
-                        purchasable = {!this.state.purchasable}/>
-               </Aux>)
-               orderSummary = <OrderSummary
+                            totalPrice = {this.state.totalPrice}
+                            ingredientRemoved = {this.removeIngredientHandler}
+                            ingredientAdded = {this.addIngredientHandler}
+                            disabled = {disableInfor}
+                            purchase = {this.purchaseHandler}
+                            purchasable = {!this.state.purchasable}/>
+                </Aux>
+               );
+        orderSummary = (<OrderSummary
                     totalPrice = {this.state.totalPrice}
                     cancle = {this.purchaseCancelHandler}
                     continue = {this.purchaseContinuewHandler}
-                    ingredeints = {this.state.ingredeints}></OrderSummary>;
+                     ingredeints = {this.state.ingredeints}></OrderSummary>);
         }
         if(this.state.loading){
             orderSummary = <Spinner></Spinner>
@@ -162,8 +168,6 @@ class BurgerBuilder extends Component{
                     {orderSummary}
                 </Model>
                 {burger}
-
-                 
             </Aux>
         );
     }
