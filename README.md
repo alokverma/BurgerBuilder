@@ -8,6 +8,8 @@
    <h4>react router</h4>
    <h4>axios</h4>
    <h4>Redux for state management</h4>
+   <h4>Redux-thunk middleware</h4>
+   <h4>Firebase for storing orders</h4>
    
 
 <p align="center">
