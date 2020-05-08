@@ -17,7 +17,7 @@ const buildControllers = (props)=>{
              key = {ctrls.lable}
              removed = { ()=> props.ingredientRemoved(ctrls.type)}
              added = {()=>props.ingredientAdded(ctrls.type)}
-             disabled = {props.disabled[ctrls.key]}>
+             disabled = {props.disabled[ctrls.type]}>
              </BuildControll>)
             }
             <button 

@@ -7,6 +7,7 @@
    <h4>css modules</h4>
    <h4>react router</h4>
    <h4>axios</h4>
+   <h4>Redux for state management</h4>
    
 
 <p align="center">
