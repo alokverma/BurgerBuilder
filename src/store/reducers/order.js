@@ -35,6 +35,22 @@ const orderReducer = (state=initialState,action) =>{
                 ...state,
                 loading:true
             };
+        case actionsType.FETCH_ORDER_START:
+            return{
+                ...state,
+                loading:true
+            }
+        case actionsType.FETCH_ORDERS_SUCCESS:
+            return{
+                ...state,
+                orders:action.orders,
+                loading:false
+            }
+        case actionsType.FETCH_ORDER_FAILS:
+            return{
+                ...state,
+                loading:false
+            }
     }
     return state;
 }
