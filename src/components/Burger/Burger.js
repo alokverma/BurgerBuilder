@@ -3,7 +3,6 @@ import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = ( props )=>{
-    console.log(props)
      let tronsformIngredient = Object.keys(props.ingredients)
         .map(igKey => {
             return [...Array(props.ingredients[igKey])].map((_,index)=>{
@@ -13,7 +12,6 @@ const burger = ( props )=>{
             return arr.concat(el);  
         },[])
         ;
-        console.log(tronsformIngredient);
         if(tronsformIngredient.length === 0){
             tronsformIngredient = <p>Please add ingredients</p>
         }

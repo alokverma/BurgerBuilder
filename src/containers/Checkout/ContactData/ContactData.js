@@ -105,7 +105,6 @@ class ContactData extends Component{
 
     orderHandler=(event)=>{
         event.preventDefault();
-        console.log(this.props)
         const formData = {};
         for(let formId in this.state.orderForm){
             formData[formId] = this.state.orderForm[formId].value;
@@ -115,14 +114,13 @@ class ContactData extends Component{
            ingredeints:this.props.ings,
            price: this.props.price,
            orderData : formData,
+           userId: this.props.userId
        }
-       this.props.purchaseStart(orderObject)
+       this.props.purchaseStart(orderObject,this.props.token)
       
     }
 
     inputChangeHandler = (event,inputIdentifier) =>{
-        console.log(event.target.value)
-        const value =  event.target.value;
         const updatedOrderForm = {
             ...this.state.orderForm
         }
@@ -190,13 +188,15 @@ const mapStateToProps = state=>{
     return{
         ings:state.burgerBuilder.ingredients,
         price:state.burgerBuilder.totalPrice,
-        loading:state.orderReducer.loading
+        loading:state.orderReducer.loading,
+        token: state.authReducer.token,
+        userId: state.authReducer.userId
     }
 }
 
 const mapDispatchToProps = dispatch =>{
     return{
-        purchaseStart: (orderData)=>dispatch(actions.purchaseBurgerStart(orderData))
+        purchaseStart: (orderData,token)=>dispatch(actions.purchaseBurgerStart(orderData,token))
     }
 }
 

@@ -20,11 +20,11 @@ const order = (props) =>{
             padding: '2px'
         }
     }
-     key = {ig.name}>{ig.name} {ig.amount}</span>
+     key = {ig.name}> {ig.name} {ig.amount}</span>
     })
 
     return (<div className = {classes.Order}>
-        {ingOutputs}
+        Ingredients:{ingOutputs}
         <p>price : USD: {props.price}</p>
     </div>
     )

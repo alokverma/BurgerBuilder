@@ -21,17 +21,15 @@ export const purchaseBurgerFail = (error) =>{
     }
 }
 
-export const purchaseBurgerStart = (orderData) =>{
+export const purchaseBurgerStart = (orderData,token) =>{
     return dispatch =>{
         dispatch(purchaseBurgerloading());
-        axios.post('/orders.json',orderData)
+        axios.post('/orders.json?auth='+token,orderData)
         .then(resoponse => {
-            console.log(resoponse)
             dispatch(purchaseBurgerSucess(resoponse.data.id,orderData))
           //  this.props.history.push('/')
         })
         .catch(error=>{
-            console.log(error)
             dispatch(purchaseBurgerFail(error))
         })
 
@@ -44,12 +42,12 @@ export const purchaseInit= ()=>{
     }
 }
 
-export const fetchOrders = ()=>{
+export const fetchOrders = (token,userId)=>{
     return dispatch =>{
         dispatch(fetchOrderStart())
-        axios.get('/orders.json')
+        const q = '?auth='+token+ '&orderBy="userId"&equalTo="'+userId+'"';
+        axios.get('/orders.json'+q)
         .then(resp=>{
-            console.log(resp.data)
             const fetedOrders = [];
             for(let key in resp.data){
                 fetedOrders.push({
